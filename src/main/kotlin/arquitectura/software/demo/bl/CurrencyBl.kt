@@ -1,16 +1,18 @@
 package arquitectura.software.demo.bl
 
+import arquitectura.software.demo.dao.Repository.CurrencyRepository
 import arquitectura.software.demo.dto.CurrencyDto
 import com.fasterxml.jackson.databind.ObjectMapper
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.io.IOException
 import java.math.BigDecimal
 
 @Service
-class CurrencyBl {
+class CurrencyBl @Autowired constructor(private val currencyRepository: CurrencyRepository) {
 
     fun obtain(from: String, to: String, amount: BigDecimal): CurrencyDto {
         if (amount <= BigDecimal.ZERO) {
