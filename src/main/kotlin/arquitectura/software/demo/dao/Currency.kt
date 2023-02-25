@@ -16,5 +16,5 @@ class Currency (
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0,
 ){
-    constructor() : this("","", BigDecimal.ZERO, BigDecimal.ZERO, Date(0))
+    constructor() : this("","", BigDecimal.ZERO, BigDecimal.ZERO, Date(0), 0)
 }

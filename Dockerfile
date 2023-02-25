@@ -1,9 +1,8 @@
-FROM eclipse-temurin:11
+FROM eclipse-temurin:11-jdk
 COPY target/*.jar /app.jar
 
-ENV USERNAME "postgres"
-ENV PASSWORD "mysecretpassword"
-ENV URL "jdbc:postgresql://localhost:5432/postgres" CAMBIAR LA URL DE LOCALHOST POR LA IP DE LA COMPUTADORA
-Y HABILITAR EL PUERTO 8080 ANTES DE EJECUTAR EL SPIRNG BOOT
+ENV USERNAME ${POSTGRES_USER}
+ENV PASSWORD ${POSTGRES_PASSWORD}
+ENV URL ${POSTGRES_URL}
 
 ENTRYPOINT ["java","-jar","/app.jar"]
