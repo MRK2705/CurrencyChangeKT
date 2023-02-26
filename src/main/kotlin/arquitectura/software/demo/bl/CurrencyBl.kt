@@ -20,7 +20,7 @@ class CurrencyBl @Autowired constructor(private val currencyRepository: Currency
 
     companion object {
         val objectMapper = jacksonObjectMapper()
-        val LOGGER: Logger = LoggerFactory.getLogger(CurrencyBl::class.java)
+        val LOGGER: Logger = LoggerFactory.getLogger(CurrencyBl::class.java.name)
     }
 
     @Value("\${currency.url}")
@@ -30,7 +30,7 @@ class CurrencyBl @Autowired constructor(private val currencyRepository: Currency
     private val apiKey: String? = null
 
     fun obtain(from: String, to: String, amount: BigDecimal): CurrencyDto {
-        LOGGER.error("Iniciando la logica para convertir divisas")
+        LOGGER.info("Iniciando la logica para convertir divisas")
         if (amount <= BigDecimal.ZERO) {
             LOGGER.error("El monto debe ser mayor a 0 y no puede ser negativo")
             throw IllegalArgumentException("The change amount must be greater than 0 and not equal to 0")

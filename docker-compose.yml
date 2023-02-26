@@ -11,14 +11,14 @@ services:
     volumes:
       - C:\Users\Mirko Alarcon\Documents\UCB\I-2023\ArqSoftware\APICambioMoneda\Mio\dckCompose:/var/lib/postgresql/data
   currency-converter:
-    image: demo:2.0.0
+    image: demo:3.0.0
     restart: always
     mem_limit: 512m
     ports:
       - "8080:8080"
     environment:
       URL: ${POSTGRES_URL}
-      USERNAME: ${POSTGRES_USER}
+      USER_NAME: ${POSTGRES_USER}
       PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - C:\Users\Mirko Alarcon\Documents\UCB\I-2023\ArqSoftware\APICambioMoneda\Mio\dckComposeCurrency:/Users/Mirko Alarcon/Documents/UCB/I-2023/ArqSoftware/APICambioMoneda/Mio/logs
