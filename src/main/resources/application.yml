@@ -12,7 +12,7 @@ spring:
     password: ${PASSWORD:mysecretpassword}
     url: ${URL:jdbc:postgresql://localhost:5432/postgres}
   config:
-    import: optional:file:./.env[.properties]
+    import: optional:file:.env[.properties]
   jpa:
     hibernate:
       ddl-auto: update
