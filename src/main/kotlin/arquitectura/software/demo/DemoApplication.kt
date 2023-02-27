@@ -11,8 +11,6 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 class DemoApplication
 
-private val logger = LoggerFactory.getLogger(DemoApplication::class.java)
-
 fun main(args: Array<String>) {
 	runApplication<DemoApplication>(*args)
 }
