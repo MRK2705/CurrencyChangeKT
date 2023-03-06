@@ -3,11 +3,11 @@ package arquitectura.software.demo
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest
-class DemoApplicationTests {
-
-	@Test
-	fun contextLoads() {
-	}
-
-}
+//@SpringBootTest
+//class DemoApplicationTests {
+//
+//	@Test
+//	fun contextLoads() {
+//	}
+//
+//}

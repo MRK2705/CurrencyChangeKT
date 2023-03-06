@@ -12,9 +12,9 @@ import java.math.BigDecimal
 class CurrencyApi(private val currencyBl: CurrencyBl) {
 
     @GetMapping("/obtain")
-    fun obtain(@RequestParam from: String, @RequestParam to: String, @RequestParam amount: BigDecimal): ResponseEntity<ResponseDto<Any>> {
+    fun obtain(@RequestParam from: String, @RequestParam to: String, @RequestParam amount: BigDecimal): ResponseEntity<Any> {
         val currencyDto = currencyBl.obtain(from, to, amount)
-        val responseDto = ResponseDto<Any>(currencyDto, true, "Success")
-        return ResponseEntity.ok(responseDto)
+        //val responseDto = ResponseDto<Any>(currencyDto, true, "Success")
+        return ResponseEntity.ok(currencyDto)
     }
 }
