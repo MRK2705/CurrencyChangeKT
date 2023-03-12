@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: postgres
     volumes:
-      - C:\Users\Mirko Alarcon\Documents\UCB\I-2023\ArqSoftware\APICambioMoneda\Mio\dckCompose:/var/lib/postgresql/data
+      - /home/mrk27/Documents/UCB/I-2023/ArqSoft/CurrencyKtDocker/dckCompose:/var/lib/postgresql/data
   currency-converter:
     image: demo:3.0.0
     restart: always
@@ -21,6 +21,6 @@ services:
       USER_NAME: ${POSTGRES_USER}
       PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - C:\Users\Mirko Alarcon\Documents\UCB\I-2023\ArqSoftware\APICambioMoneda\Mio\dckComposeCurrency:/Users/Mirko Alarcon/Documents/UCB/I-2023/ArqSoftware/APICambioMoneda/Mio/logs
+      - /home/mrk27/Documents/UCB/I-2023/ArqSoft/CurrencyKtDocker/dckComposeCurrency:/home/mrk27/Documents/UCB/I-2023/ArqSoft/CurrencyKtDocker/Logs
     depends_on:
       - postgres
