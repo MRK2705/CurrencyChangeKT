@@ -17,4 +17,11 @@ class CurrencyApi(private val currencyBl: CurrencyBl) {
         //val responseDto = ResponseDto<Any>(currencyDto, true, "Success")
         return ResponseEntity.ok(currencyDto)
     }
+
+    @GetMapping("/list")
+    fun getConvertions(@RequestParam page: Int, @RequestParam size: Int) : Any {
+        val convertions = currencyBl.getListOfConvertions(page, size);
+        return ResponseEntity.ok(convertions)
+    }
+
 }

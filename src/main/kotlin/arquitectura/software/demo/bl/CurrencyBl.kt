@@ -1,8 +1,10 @@
 package arquitectura.software.demo.bl
 
 import arquitectura.software.demo.dao.Currency
+import arquitectura.software.demo.dao.Repository.ChangeRepository
 import arquitectura.software.demo.dao.Repository.CurrencyRepository
 import arquitectura.software.demo.dto.CurrencyDto
+import arquitectura.software.demo.dto.RequestDto
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import okhttp3.OkHttpClient
@@ -11,12 +13,13 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 import java.util.*
 
 @Service
-class CurrencyBl @Autowired constructor(private val currencyRepository: CurrencyRepository) {
+class CurrencyBl @Autowired constructor(private val currencyRepository: CurrencyRepository, private val changeRepository: ChangeRepository) {
 
     companion object {
         val objectMapper = jacksonObjectMapper()
@@ -61,6 +64,11 @@ class CurrencyBl @Autowired constructor(private val currencyRepository: Currency
         val mapper = ObjectMapper()
         val currencyDto = mapper.readValue(result, CurrencyDto::class.java)
         return currencyDto
-
     }
+
+    fun getListOfConvertions(page: Int, size: Int): Any {
+        val currencies = changeRepository.findAll(PageRequest.of(page, size))
+        return currencies
+    }
+
 }

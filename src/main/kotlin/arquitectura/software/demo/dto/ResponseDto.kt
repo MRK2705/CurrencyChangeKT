@@ -1,7 +1,7 @@
 package arquitectura.software.demo.dto
 
 data class ResponseDto<T>(
-    var data: Any?,
+    var data: T,
     var success: Boolean,
     var message: String
 )

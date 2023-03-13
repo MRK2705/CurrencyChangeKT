@@ -10,7 +10,7 @@ class ControllerExceptions {
 
     @ExceptionHandler(IllegalArgumentException::class)
     fun zeroException(e: IllegalArgumentException): ResponseEntity<Any> {
-        val responseDto = ResponseDto<Any>(null, false, e.message.toString())
+        val responseDto = ResponseDto<Any>(0, false, e.message.toString())
         return ResponseEntity.badRequest().body(responseDto)
     }
 }

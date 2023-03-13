@@ -10,6 +10,7 @@ data class CurrencyDto(
     var result: BigDecimal?
 ){
     constructor() : this(false,null,null,null,null)
+    constructor(query: RequestDto?, result: BigDecimal?): this()
 
     override fun toString(): String {
         return "CurrencyDto(success=$success, query=$query, info=$info, date='$date', result=$result)"
