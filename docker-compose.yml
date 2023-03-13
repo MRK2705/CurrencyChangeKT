@@ -24,3 +24,9 @@ services:
       - /home/mrk27/Documents/UCB/I-2023/ArqSoft/CurrencyKtDocker/dckComposeCurrency:/home/mrk27/Documents/UCB/I-2023/ArqSoft/CurrencyKtDocker/Logs
     depends_on:
       - postgres
+  angular:
+    image: angular-software:2.0.0
+    ports:
+      - "4200:80"
+    volumes:
+      - /home/mrk27/Documents/UCB/I-2023/ArqSoft/CurrencyKtDocker/CurrencyFront/CurrencyChangeKT_Front/nginx.conf:/etc/nginx/nginx.conf
