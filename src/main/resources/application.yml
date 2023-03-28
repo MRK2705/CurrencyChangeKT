@@ -22,22 +22,26 @@ spring:
 keycloak:
   auth-server-url: http://localhost:8081
   autodetect-bearer-only: true
-  realm: software
-  ssl-required: external
-  resource: backend
   credentials:
     secret: xmfeZdBq5R9jtxbZTomrKhbwdSxAo833
+  realm: software
+  resource: backend
+  ssl-required: external
   use-resource-role-mappings: false
   security-constraints:
     - auth-roles:
         - ADMIN
       security-collections:
         - name: SERVICIOS DE ADMINISTRADOR
+          omitted-methods:
+            - OPTIONS
           patterns:
             - /api/v1/currency/list
     - auth-roles:
         - USER
       security-collections:
         - name: SERVICIOS DE ADMINISTRADOR
+          omitted-methods:
+            - OPTIONS
           patterns:
             - /api/v1/currency/obtain
