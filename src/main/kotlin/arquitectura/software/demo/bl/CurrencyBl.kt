@@ -4,7 +4,7 @@ import arquitectura.software.demo.dao.Currency
 import arquitectura.software.demo.dao.Repository.ChangeRepository
 import arquitectura.software.demo.dao.Repository.CurrencyRepository
 import arquitectura.software.demo.dto.CurrencyDto
-import arquitectura.software.demo.dto.RequestDto
+import arquitectura.software.demo.inter.CurrencyService
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import okhttp3.OkHttpClient
@@ -19,7 +19,8 @@ import java.math.BigDecimal
 import java.util.*
 
 @Service
-class CurrencyBl @Autowired constructor(private val currencyRepository: CurrencyRepository, private val changeRepository: ChangeRepository) {
+class CurrencyBl @Autowired constructor(private val currencyRepository: CurrencyRepository,
+                                        private val changeRepository: ChangeRepository): CurrencyService{
 
     companion object {
         val objectMapper = jacksonObjectMapper()
@@ -32,7 +33,7 @@ class CurrencyBl @Autowired constructor(private val currencyRepository: Currency
     @Value("\${currency.api_key}")
     private val apiKey: String? = null
 
-    fun obtain(from: String, to: String, amount: BigDecimal): CurrencyDto {
+    override fun obtain(from: String, to: String, amount: BigDecimal): CurrencyDto {
         LOGGER.info("Iniciando la logica para convertir divisas")
         if (amount <= BigDecimal.ZERO) {
             LOGGER.error("El monto debe ser mayor a 0 y no puede ser negativo")

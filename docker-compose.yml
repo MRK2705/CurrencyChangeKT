@@ -14,7 +14,7 @@ services:
     networks:
         - mrk-network
   currency-converter:
-    image: demo:10.0.0
+    image: demo:3.5.1
     restart: always
     mem_limit: 512m
     ports:
@@ -30,7 +30,7 @@ services:
     networks:
         - mrk-network
   angular:
-    image: angular-software:10.0.0
+    image: angular-software:3.5.1
     ports:
       - "4200:80"
     volumes:
