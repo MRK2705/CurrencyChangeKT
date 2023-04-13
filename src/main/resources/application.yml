@@ -39,3 +39,9 @@ keycloak:
           patterns:
             - /api/v1/currency/list
             - /api/v1/currency/obtain
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
